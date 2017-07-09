@@ -1,0 +1,12 @@
+﻿# Mac OS
+*.DS_Store
+
+# Windows
+*Thumbs.db
+
+# Linux
+*.thumbnails
+
+.sass-cache
+node_modules
+.idea

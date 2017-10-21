@@ -1,6 +1,7 @@
 @import "mixins";
 
 * {
+  font-size: 0;
   padding:0;
   margin: 0;
   box-sizing: border-box;
@@ -12,7 +13,7 @@ a {
 }
 
 html, body {
-
+    cursor: url(../img/cursor.png);
 }
 
 body {
@@ -85,9 +86,9 @@ body {
 section {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
+  height: 100vh;
   background: #222;
-  
+
   &:nth-child(odd) {
     background: #333;
   }
@@ -97,7 +98,7 @@ section {
     color: #fff;
     z-index: 5;
     background: #6E232F;
-    
+
     #code,
     #design {
       font-size: 60px;
@@ -189,4 +190,3 @@ section {
   border-radius: 150px;
   border: 5px solid #fff;
 }
-

@@ -1,17 +1,23 @@
 /* line 3, ../sass/global.scss */
 * {
+  font-size: 0;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-/* line 9, ../sass/global.scss */
+/* line 10, ../sass/global.scss */
 a {
   color: #000;
   text-decoration: none;
 }
 
-/* line 18, ../sass/global.scss */
+/* line 15, ../sass/global.scss */
+html, body {
+  cursor: url(../img/cursor.png);
+}
+
+/* line 19, ../sass/global.scss */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,7 +25,7 @@ body {
   min-width: 600px;
 }
 
-/* line 26, ../sass/global.scss */
+/* line 27, ../sass/global.scss */
 #menu {
   position: fixed;
   z-index: 100;
@@ -29,11 +35,11 @@ body {
   max-width: 300px;
   padding: 10px 10px;
 }
-/* line 35, ../sass/global.scss */
+/* line 36, ../sass/global.scss */
 #menu li {
   display: block;
 }
-/* line 39, ../sass/global.scss */
+/* line 40, ../sass/global.scss */
 #menu li:first-child a {
   background: #fff;
   color: #6E232F;
@@ -42,7 +48,7 @@ body {
   height: 120px;
   position: relative;
 }
-/* line 47, ../sass/global.scss */
+/* line 48, ../sass/global.scss */
 #menu li:first-child a:after {
   content: "";
   display: block;
@@ -53,7 +59,7 @@ body {
   top: -5px;
   bottom: 0;
 }
-/* line 65, ../sass/global.scss */
+/* line 66, ../sass/global.scss */
 #menu li a {
   font-weight: 600;
   font-size: 20px;
@@ -65,31 +71,31 @@ body {
   border: 5px solid #fff;
   margin-bottom: -5px;
 }
-/* line 75, ../sass/global.scss */
+/* line 76, ../sass/global.scss */
 #menu li a:hover {
   background: #fff;
   color: #222;
 }
 
-/* line 85, ../sass/global.scss */
+/* line 86, ../sass/global.scss */
 section {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
+  height: 100vh;
   background: #222;
 }
-/* line 91, ../sass/global.scss */
+/* line 92, ../sass/global.scss */
 section:nth-child(odd) {
   background: #333;
 }
-/* line 95, ../sass/global.scss */
+/* line 96, ../sass/global.scss */
 section#me {
   position: relative;
   color: #fff;
   z-index: 5;
   background: #6E232F;
 }
-/* line 101, ../sass/global.scss */
+/* line 102, ../sass/global.scss */
 section#me #code,
 section#me #design {
   font-size: 60px;
@@ -99,24 +105,24 @@ section#me #design {
   position: absolute;
   top: 40px;
 }
-/* line 111, ../sass/global.scss */
+/* line 112, ../sass/global.scss */
 section#me #code {
   left: -110px;
   transform-origin: 290px 50%;
 }
-/* line 116, ../sass/global.scss */
+/* line 117, ../sass/global.scss */
 section#me #design {
   left: 82%;
   transform-origin: -120px 50%;
 }
-/* line 121, ../sass/global.scss */
+/* line 122, ../sass/global.scss */
 section#me #bille-wrap {
   height: 300px;
   width: 300px;
   margin: 35vh auto 0;
   position: relative;
 }
-/* line 128, ../sass/global.scss */
+/* line 129, ../sass/global.scss */
 section#me #bille {
   width: 150px;
   height: 150px;
@@ -141,7 +147,7 @@ section#me #bille {
     transform: translateY(-50px);
   }
 }
-/* line 158, ../sass/global.scss */
+/* line 159, ../sass/global.scss */
 section#me #bille-ombre {
   background: #521A23;
   width: 130px;
@@ -157,7 +163,7 @@ section#me #bille-ombre {
     transform: scale(0.75);
   }
 }
-/* line 180, ../sass/global.scss */
+/* line 181, ../sass/global.scss */
 .click {
   z-index: 999;
   position: absolute;

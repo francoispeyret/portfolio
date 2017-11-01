@@ -1,19 +1,18 @@
-var express = require('express');
-
-var app = express();
-var server = app.listen(3000);
+const
+    express = require('express'),
+    app = express(),
+    server = app.listen(3000);
 
 app.use(express.static('public'));
-
 console.log('Serveur se lance...');
 
-var socket = require('socket.io');
-
-var io = socket(server);
-
-io.sockets.on('connection', newConnection);
+const
+    socket = require('socket.io'),
+    io = socket(server);
 
 var connected = [];
+
+io.sockets.on('connection', newConnection);
 
 setInterval(function(){
     console.log(connected);
@@ -23,7 +22,7 @@ function newConnection(socket) {
     connected.push(socket.id);
     console.log('new connection: ' + socket.id);
     socket.broadcast.emit('new', socket.id);
-    socket.broadcast.emit('others', connected);
+    io.emit('others',connected);
     socket.on('mouse', mouseMessage);
     socket.on('click', mouseClick);
 

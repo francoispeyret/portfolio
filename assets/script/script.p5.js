@@ -12,49 +12,13 @@ function preload() {
 }
 
 function setup(){
-    myCanvas = createCanvas(windowWidth-15,windowHeight);
-    myCanvas.parent("me");
+    createCanvas(windowWidth-15,windowHeight);
 
     socket.on('new', newOther);
     socket.on('others', updateOther);
     socket.on('disconnected', disconnectOther);
     socket.on('mouse', ortherMove);
     socket.on('click', ortherClick);
-}
-
-function newOther(id) {
-    others.push(new Cursor(id,0,0));
-}
-
-function updateOther(data) {
-    console.log('updateOther');
-    console.log(data);
-    for (let i = data.length-1; i >= 0; i--) {
-        if(data[i]!=socket.id) {
-            others.push(new Cursor(data[i],0,0));
-        }
-    }
-}
-
-function disconnectOther(id) {
-    for (let i = others.length-1; i >= 0; i--) {
-        if(others[i].id==id) {
-            others.splice(i,1);
-        }
-    }
-}
-
-function ortherMove(data) {
-    for (var i = others.length-1; i >= 0; i--) {
-        if(others[i].id==data.id) {
-            others[i].x = data.x;
-            others[i].y = data.y;
-        }
-    }
-}
-
-function ortherClick(data) {
-    bubbles.push(new Bubble(data.x, data.y));
 }
 
 function mouseMoved() {
@@ -79,6 +43,24 @@ function draw(){
     background('#6E232F');
 
     translate((windowWidth-15)/2,windowHeight/2+posScene);
+
+    var mousePosX = Math.floor(mouseX-(windowWidth/2)),
+        mousePosY = Math.floor(mouseY-(windowHeight/2));
+
+    var pointNumber = 30;
+    for (var y = 1; y <= pointNumber/2; y++) {
+        for (var x = pointNumber/2*-1; x <= pointNumber/2; x++) {
+            var alpha = 100;
+            var xPos = x*(y*1+20);
+            var yPos = (y*10)+20;
+
+            noFill();
+            stroke(255,255,255,alpha);
+            strokeWeight(4);
+            point(xPos,yPos);
+        }
+    }
+
 
     noStroke();
     fill('#fff');
@@ -128,37 +110,4 @@ function draw(){
 
 function windowResized() {
     resizeCanvas(windowWidth-15, windowHeight);
-}
-
-function Cursor(id,x,y) {
-    this.id = id;
-    this.x = x;
-    this.y = y;
-
-    this.display = function() {
-        image(imgCursor, this.x, this.y);
-    }
-}
-
-function Bubble(x,y) {
-    this.x = x;
-    this.y = y;
-    this.w = 30;
-    this.h = 30;
-    this.opacity = 255;
-
-    this.display = function() {
-        noFill();
-        stroke(255,255,255,this.opacity);
-        strokeWeight(5);
-        ellipse(this.x,this.y,this.w,this.h);
-    }
-    this.pop = function() {
-        this.w = this.w + 4;
-        this.h = this.h + 4;
-        this.opacity = this.opacity - 20;
-        if(this.opacity <= 0) {
-            bubbles.splice(0,1);
-        }
-    }
 }

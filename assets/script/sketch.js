@@ -16,7 +16,7 @@ function draw() {
     let lightDirectionY = map(mouseY,0,height,1000,-1000);
     //directionalLight(255,255,255,lightDirectionX,0,1);
     pointLight(255,255,255,lightDirectionX,lightDirectionY,-300);
-
+    noStroke();
     if(positionY > 0) translate(0,positionY*-5,0);
 
     let offsetX = map(mouseX, -100, width+100, -100, 100);
